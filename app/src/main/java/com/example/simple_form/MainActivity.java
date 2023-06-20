@@ -31,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
                 String mEmail = email.getText().toString();
                 String mPassword = password.getText().toString();
 
+                if(mName.isEmpty() || mLastName.isEmpty() || mEmail.isEmpty() || mPassword.isEmpty() || !mEmail.contains("@") ) {
+                    Toast.makeText(getBaseContext(), "Faltan campos por completar", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String text = "El nombre es: " + mName + " , el apellido es : " + mLastName + " , el email es: " + mEmail + " , y la contraseña es: " + mPassword;
 
                 Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
