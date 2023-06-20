@@ -3,9 +3,11 @@ package com.example.simple_form;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,5 +22,19 @@ public class MainActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.password);
 
         Button registerButton = findViewById(R.id.registerBtn);
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String mName = name.getText().toString();
+                String mLastName = lastName.getText().toString();
+                String mEmail = email.getText().toString();
+                String mPassword = password.getText().toString();
+
+                String text = "El nombre es: " + mName + " , el apellido es : " + mLastName + " , el email es: " + mEmail + " , y la contraseña es: " + mPassword;
+
+                Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
